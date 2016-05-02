@@ -57,7 +57,6 @@ __em_help() {
 		echo "=========================="
 	fi
 
-	echo ""
 	echo "em usage"
 	echo ""
 	echo "em list           : List available environments"
@@ -84,8 +83,14 @@ __em_get() {
 }
 
 
-# Prints all available environments, 1 per line
+# Prints all available environments, 1 per line, sorted
 __em_list() {
+	__em_list_unsorted | sort
+}
+
+
+# Prints all available environments, 1 per line
+__em_list_unsorted() {
 	for f in $(find ${EM_HOME} -name '*.env' -o -name '*.sh' -o -name '*.bash'); do
 		f=$(basename $f)
 		echo "${f%.*}"
@@ -202,7 +207,7 @@ __em_autocomplete() {
 		opts="get set list unset help"
 	
 	elif [ "$COMP_CWORD" -eq "2" -a "${COMP_WORDS[1]}" == "set" -a -n "${EM_HOME}" ]; then
-		opts=$(__em_list)
+		opts=$(__em_list_unsorted)
 	fi
 	
 	COMPREPLY=( $(compgen -W "${opts}" -- ${COMP_WORDS[COMP_CWORD]}) )
