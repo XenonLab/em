@@ -13,7 +13,7 @@ em() {
 	fi
 
 	if [ "$#" -eq "0" ]; then
-		__em_help
+		__em_usage
 		return 0
 	fi
 
@@ -38,36 +38,37 @@ em() {
 			;;
 		
 		help)
-			__em_help
+			__em_usage
 			;;
 		
 		*)
-			__em_help "Unknown option: ${command}"
+			__em_usage "Unknown option: ${command}"
 			;;
 	esac
 }
 
 
-# Print help information
-__em_help() {
+# Print usage
+__em_usage() {
 
 	if [ -n "$1" ]; then
-		echo "=========================="
 		echo "$1"
-		echo "=========================="
+		echo ""
 	fi
 
-	echo "em usage"
-	echo ""
-	echo "em list           : List available environments"
-	echo "em get [FORMAT]   : Show the current environment. If a format string"
-	echo "                        containing %s is provided, then printf the environment"
-	echo "                        using it"
-	echo "em set [ENVNAME]  : Unset the current environment if one is set. Then, if"
-	echo "                        ENVNAME is provided, set the current environment to"
-	echo "                        ENVNAME"
-	echo "em unset          : Calls em set with no environment."
-	echo "em help           : Show this usage message"
+	cat <<-'EOF'
+		em usage
+
+		em list           : List available environments
+		em get [FORMAT]   : Show the current environment. If a format string
+		                        containing %s is provided, then printf the environment
+		                        using it
+		em set [ENVNAME]  : Unset the current environment if one is set. Then, if
+		                        ENVNAME is provided, set the current environment to
+		                        ENVNAME
+		em unset          : Calls em set with no environment.
+		em help           : Show this usage message
+	EOF
 }
 
 
