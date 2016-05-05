@@ -49,7 +49,7 @@ export BZR='${FOO} "bar!"'
 ### Usage
 
 
-##### em list
+#### `em list`
 
 List all of the environments that are in `${EM_HOME}`
 
@@ -64,7 +64,7 @@ marketingman
 xeid
 ```
 
-##### em set [ENVNAME]
+#### `em set [ENVNAME]`
 
 Sets the current environment to `ENVNAME`.
 
@@ -104,7 +104,7 @@ Unsetting environment: xeid
 ```
 
 
-##### em get [FORMAT]
+#### `em get [FORMAT]`
 
 Prints the name of the current enviroment.
 
@@ -129,12 +129,12 @@ $ em get '(%s)'
 (blender)
 ```
 
-##### em unset
+#### `em unset`
 
 An alias for `em set` with no arguments.
 
 
-##### em help
+#### `em help`
 
 Print usage.
 
