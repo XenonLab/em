@@ -8,7 +8,7 @@ em is a script that helps you manage environment variables for different project
 Run the following commands:
 
 ```
-curl -k https://gitlab.xe.com/etraikov/em/raw/master/em.bash > ~/.em.bash
+curl -sk https://gitlab.xe.com/etraikov/em/raw/master/em.bash > ~/.em.bash
 mkdir ~/.em
 echo "source ~/.em.bash" >> ~/.bashrc
 echo 'export EM_HOME="${HOME}/.em"' >> ~/.bashrc
