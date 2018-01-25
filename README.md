@@ -10,7 +10,7 @@ Tested on both Debian and Mac.
 To install, run the following commands:
 
 ```
-curl -sSfL https://github.com/XenonLab/releases/tag/v1.0.0/em.bash > ~/.em.bash
+curl -sSfL https://github.com/XenonLab/em/releases/download/v1.0.0/em.bash > ~/.em.bash
 mkdir ~/.em
 echo "source ~/.em.bash" >> ~/.bashrc
 echo 'export EM_HOME="${HOME}/.em"' >> ~/.bashrc
