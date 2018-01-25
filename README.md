@@ -16,9 +16,15 @@ echo "source ~/.em.bash" >> ~/.bashrc
 echo 'export EM_HOME="${HOME}/.em"' >> ~/.bashrc
 ```
 
-This will download the em script to `~/.em.bash`, create a directory for storing all of your environment files called `~/.em/`, and set the `$EM_HOME` environment variable to point at it.
+This will:
+- Download the em script to `~/.em.bash`
+- Create a directory for storing all of your environment files called `~/.em/`.
+- Source the em script every time you start a new shell.
+- Set the `$EM_HOME` environment variable so that em knows where you are storing your environment variable collections.
 
-If you are using a mac, you will probably also need to add the following lines to your `~/.bash_profile`:
+The reason we need to source the script is because it sets environment variables. If you were to run em from a bin, it would run in a subshell and any envvars set wouldn't affect your current environment.
+
+If you are using a mac, you probably also need to add the following lines to your `~/.bash_profile`:
 
 ```
 if [ -f ~/.bashrc ]; then
